@@ -7,13 +7,20 @@ This project was inspired by [Daniel Shiffman](https://github.com/shiffman) and 
 
 ### [Express](https://www.npmjs.com/package/express)
 
-To install **express** you just need to run this command in your terminal:
+Used for the **server side**.
+
+### [NeDB](https://www.npmjs.com/package/nedb)
+
+Used for the **database**.
+
+
+To install the **required libraries**, run the following **command**:
 
 ```
-npm i express
+npm i
 ```
 
-## Serving
+## Serving the app
 
 To start serving ISS-Locator, do the following steps:
 
@@ -21,9 +28,9 @@ To start serving ISS-Locator, do the following steps:
 
 - Navigate to `localhost:3000` in your browser
 
-## Libraries used
+## Other libraries used
 
-These are the **libraries** that were used. Without them the project would'nt be possible to be made!
+These are the **libraries** that were used in the HTML. Without them the project would'nt be possible to be made!
 
 There is no need to install them because are already imported with [jsDelivr](https://www.jsdelivr.com/) and [unpkg](https://unpkg.com/) in the **HTML**.
 

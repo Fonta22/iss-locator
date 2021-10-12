@@ -89,8 +89,25 @@
             mymap.setView([globLat, globLon], 2);
         }
 
-        function saveData() {
-            alert(`Latitude: ${globLat}\nLongitude: ${globLon}\nAltitude: ${globAlt}`);
+        async function saveData() {
+            //alert(`Latitude: ${globLat}\nLongitude: ${globLon}\nAltitude: ${globAlt}`);
+            const data = {
+                lat: globLat,
+                lon: globLon,
+                alt: globAlt
+            };
+            
+            const options = {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(data)
+            };
+
+            const response = await fetch('/api', options);
+            const json = await response.json();
+            console.log(json);
         }
     </script>
 </body>

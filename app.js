@@ -3,11 +3,13 @@ require('dotenv').config();
 const express = require('express');
 const Datastore = require('nedb');
 
-const app = express();
 const port = process.env.PORT;
-const filedb = 'database.db';
+const host = process.env.HOST;
+const filedb = process.env.DB_NAME;
 
-app.listen(port, () => console.log(`listening at ${port}`));
+const app = express();
+
+app.listen(port, () => console.log(`listening at ${host}:${port}`));
 app.use(express.static('public'));
 app.use(express.json({ limit: '1mb' }));
 

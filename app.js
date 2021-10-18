@@ -24,9 +24,5 @@ app.post('/api', (request, response) => {
     database.insert(data);
     console.log(`Data saved to database: "${filedb}"`);
 
-    response.json({
-        status: 'success',
-        latitude: data.lat,
-        longitude: data.lon
-    });
+    response.json(data);
 });

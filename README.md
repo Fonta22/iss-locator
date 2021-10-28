@@ -31,7 +31,7 @@ npm i
 
 Firstable create a file called `.env` in the **root directory** of the project.
 
-Following the example shown in the file [`.env.example`](https://github.com/Fonta22/iss-locator/blob/main/.env.example), create a configuration:
+Following the example file [`.env.example`](https://github.com/Fonta22/iss-locator/blob/main/.env.example), create a configuration:
 
 ### `HOST`
 ```

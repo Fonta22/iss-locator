@@ -7,7 +7,9 @@ This project was inspired by [Daniel Shiffman](https://github.com/shiffman) and 
 
 ### [Node.js](https://nodejs.org/)
 
-JavaScript **runtime**.
+JavaScript **runtime**. It is necessary to run the whole project.
+
+## Dependencies
 
 ### [Express](https://www.npmjs.com/package/express)
 

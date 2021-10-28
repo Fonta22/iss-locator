@@ -65,7 +65,7 @@ To start serving ISS-Locator, do the following steps:
 
 - Run `app.js`
 
-- Navigate to `host:port` in your browser. Use the ones selected in the [.env configuration](https://github.com/Fonta22/iss-locator#.env-configuration).
+- Navigate to `host:port` in your browser. Use the ones selected in the [.env configuration](https://github.com/Fonta22/iss-locator#env-configuration).
 
 ## Other libraries used
 

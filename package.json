@@ -10,9 +10,17 @@
     "iss",
     "api",
     "express",
-    "geolocation"
+    "geolocation",
+    "hacktoberfest"
   ],
-  "author": "Pau Fontàs",
+  "author": "Fonta22",
+  "contributors": [
+    "PrachiAgarwal19"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Fonta22/iss-locator"
+  },
   "license": "ISC",
   "dependencies": {
     "dotenv": "^10.0.0",

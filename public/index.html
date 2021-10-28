@@ -16,6 +16,11 @@
     />
 
     <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.6.1/font/bootstrap-icons.css"
+      rel="stylesheet"
+    />
+
+    <link
       rel="stylesheet"
       href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
       integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
@@ -84,10 +89,13 @@
     <div class="controls">
       <button class="btn btn-primary" onclick="centerMap()">Center</button>
       <button class="btn btn-primary" onclick="saveData()">Save</button>
+      <button class="btn btn-secondary" onclick="rd_github()"><i class="bi bi-github"></i></button>
     </div>
     <br />
     <div id="issMap"></div>
     <br />
+    <script src="redirect.js"></script>
+    <script src="download.js"></script>
     <script src="locate.js"></script>
   </body>
 </html>

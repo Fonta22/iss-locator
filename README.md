@@ -5,6 +5,10 @@ This project was inspired by [Daniel Shiffman](https://github.com/shiffman) and 
 
 ## Requirements
 
+### [Node.js](https://nodejs.org/)
+
+JavaScript **runtime**.
+
 ### [Express](https://www.npmjs.com/package/express)
 
 Used for the **server side**.
@@ -13,11 +17,46 @@ Used for the **server side**.
 
 Used for the **database**.
 
+### [dotenv](https://www.npmjs.com/package/dotenv)
 
-To install the **required libraries**, run the following **command**:
+Used to fetch the **environment files** (`.env`).
+
+To install all the **required libraries**, run the following **command**:
 
 ```
 npm i
+```
+
+## .env configuration
+
+Firstable create a file called `.env` in the **root directory** of the project.
+
+Following the example shown in the file [`.env.example`](https://github.com/Fonta22/iss-locator/blob/main/.env.example), create a configuration:
+
+### `HOST`
+```
+HOST=localhost 
+```
+Or, if you prefere it:
+
+```
+HOST=127.0.0.1
+```
+
+### `PORT`
+
+As long as it has got 4 numbers, you can use any. Preferiblely use port 3000, that is the default port for **Express**.
+
+```
+PORT=3000
+```
+
+### `DB_NAME`
+
+This will be the name for the database file. You can use any name as long as it has the **.db** file extension.
+
+```
+DB_NAME=database.db
 ```
 
 ## Serving the app
@@ -26,7 +65,7 @@ To start serving ISS-Locator, do the following steps:
 
 - Run `app.js`
 
-- Navigate to `localhost:3000` in your browser
+- Navigate to `host:port` in your browser. Use the ones selected in the [.env configuration](https://github.com/Fonta22/iss-locator#.env-configuration).
 
 ## Other libraries used
 

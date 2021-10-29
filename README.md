@@ -5,6 +5,10 @@ This project was inspired by [Daniel Shiffman](https://github.com/shiffman) and 
 
 ## Requirements
 
+### [Running via Docker](https://docs.docker.com/get-docker/)
+
+To run via Docker, simply run `docker-compose up` which removes the need to have node installed locally.
+
 ### [Node.js](https://nodejs.org/)
 
 JavaScript **runtime**. It is necessary to run the whole project.

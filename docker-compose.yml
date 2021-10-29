@@ -1,0 +1,13 @@
+version: '3.7'
+
+services:
+  iss-locator:
+    build:
+      dockerfile: Dockerfile
+      context: .
+    ports:
+      - 3000:3000
+    volumes:
+      - "./:/usr/src/app/"
+    env_file: 
+      - .env

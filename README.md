@@ -3,6 +3,8 @@
 ISS-Locator uses the `wheretheiss.at` API to **geolocate** the **International Space Station** in real time.
 This project was inspired by [Daniel Shiffman](https://github.com/shiffman) and [Where the ISS at](https://wheretheiss.at/).
 
+![Demo](.github/img/demo.png)
+
 ## Requirements
 
 ### [Running via Docker](https://docs.docker.com/get-docker/)

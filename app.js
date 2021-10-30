@@ -9,7 +9,7 @@ const filedb = process.env.DB_NAME;
 
 const app = express();
 
-app.listen(port, () => console.log(`listening at ${host}:${port}`));
+app.listen(port, () => console.log(`Server running at ${host}:${port}`));
 app.use(express.static('public'));
 app.use(express.json({ limit: '1mb' }));
 

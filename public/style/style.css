@@ -1,3 +1,8 @@
+body {
+  background: rgb(45, 45, 45);
+  color: #f5f5f5;
+}
+
 #issMap {
   height: 540px;
   width: 1080px;

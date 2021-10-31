@@ -14,7 +14,7 @@ const issIcon = L.icon({
     iconUrl: 'img/iss200.png',
     iconSize: [50, 32],
     iconAnchor: [25, 16]
-})
+});
 
 const marker = L.marker([0, 0], { icon: issIcon }).addTo(mymap);
 
@@ -24,9 +24,7 @@ let first = true;
 let globLat,globLon,globAlt;
 
 async function getISS() {
-
     try{
-
         const response = await fetch(api_url);
         const data = await response.json();
     
@@ -46,13 +44,10 @@ async function getISS() {
         document.getElementById('lat').textContent = latitude.toFixed(2) + '°';
         document.getElementById('lon').textContent = longitude.toFixed(2) + '°';
         document.getElementById('alt').textContent = alt_km.toFixed(2) + ' km';
-
     }
-    catch(err){
-
-        console.log("Internal Server Error : ",err);
-        alert("Some Error occured, Please try again");
-
+    catch(err) {
+        console.log(`Internal Server Error : ${err}`);
+        alert('Some Error occured, Please try again');
     }
 
 }
@@ -80,17 +75,11 @@ async function saveData() {
     };
 
     try{
-
         const response = await fetch('/api', options);
         const json = await response.json();
         downloadFile(json);
-
+    } catch(err){
+        console.log(`Internal Server Error: ${err}`);
+        alert('Some Error occured, Please try again');
     }
-    catch(err){
-        console.log("Internal Server Error : ",err);
-        alert("Some Error occured, Please try again");
-
-    }
-
-    
 }

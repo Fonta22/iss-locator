@@ -21,6 +21,8 @@ const marker = L.marker([0, 0], { icon: issIcon }).addTo(mymap);
 const api_url = 'https://api.wheretheiss.at/v1/satellites/25544';
 let first = true;
 
+let globLat,globLon,globAlt;
+
 async function getISS() {
 
     try{

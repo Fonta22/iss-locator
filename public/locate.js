@@ -22,25 +22,37 @@ const api_url = 'https://api.wheretheiss.at/v1/satellites/25544';
 let first = true;
 
 async function getISS() {
-    const response = await fetch(api_url);
-    const data = await response.json();
 
-    const { latitude, longitude, altitude } = data;
-    const alt_km = altitude * 1.609344;
+    try{
 
-    globLat = latitude;
-    globLon = longitude;
-    globAlt = alt_km;
+        const response = await fetch(api_url);
+        const data = await response.json();
+    
+        const { latitude, longitude, altitude } = data;
+        const alt_km = altitude * 1.609344;
+    
+        globLat = latitude;
+        globLon = longitude;
+        globAlt = alt_km;
+    
+        marker.setLatLng([latitude, longitude]);
+        if (first) {
+            centerMap();
+            first = false;
+        }
+    
+        document.getElementById('lat').textContent = latitude.toFixed(2) + '°';
+        document.getElementById('lon').textContent = longitude.toFixed(2) + '°';
+        document.getElementById('alt').textContent = alt_km.toFixed(2) + ' km';
 
-    marker.setLatLng([latitude, longitude]);
-    if (first) {
-        centerMap();
-        first = false;
+    }
+    catch(err){
+
+        console.log("Internal Server Error : ",err);
+        alert("Some Error occured, Please try again");
+
     }
 
-    document.getElementById('lat').textContent = latitude.toFixed(2) + '°';
-    document.getElementById('lon').textContent = longitude.toFixed(2) + '°';
-    document.getElementById('alt').textContent = alt_km.toFixed(2) + ' km';
 }
 
 getISS();
@@ -65,8 +77,21 @@ async function saveData() {
         body: JSON.stringify(data)
     };
 
-    const response = await fetch('/api', options);
-    const json = await response.json();
+    try{
 
-    downloadFile(json);
+        const response = await fetch('/api', options);
+        const json = await response.json();
+        
+        throw 500;
+
+        //downloadFile(json);
+
+    }
+    catch(err){
+        console.log("Internal Server Error : ",err);
+        alert("Some Error occured, Please try again");
+
+    }
+
+    
 }

@@ -81,10 +81,7 @@ async function saveData() {
 
         const response = await fetch('/api', options);
         const json = await response.json();
-        
-        throw 500;
-
-        //downloadFile(json);
+        downloadFile(json);
 
     }
     catch(err){

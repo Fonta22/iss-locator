@@ -14,33 +14,42 @@ const issIcon = L.icon({
     iconUrl: 'img/iss200.png',
     iconSize: [50, 32],
     iconAnchor: [25, 16]
-})
+});
 
 const marker = L.marker([0, 0], { icon: issIcon }).addTo(mymap);
 
 const api_url = 'https://api.wheretheiss.at/v1/satellites/25544';
 let first = true;
 
+let globLat,globLon,globAlt;
+
 async function getISS() {
-    const response = await fetch(api_url);
-    const data = await response.json();
-
-    const { latitude, longitude, altitude } = data;
-    const alt_km = altitude * 1.609344;
-
-    globLat = latitude;
-    globLon = longitude;
-    globAlt = alt_km;
-
-    marker.setLatLng([latitude, longitude]);
-    if (first) {
-        centerMap();
-        first = false;
+    try{
+        const response = await fetch(api_url);
+        const data = await response.json();
+    
+        const { latitude, longitude, altitude } = data;
+        const alt_km = altitude * 1.609344;
+    
+        globLat = latitude;
+        globLon = longitude;
+        globAlt = alt_km;
+    
+        marker.setLatLng([latitude, longitude]);
+        if (first) {
+            centerMap();
+            first = false;
+        }
+    
+        document.getElementById('lat').textContent = latitude.toFixed(2) + '°';
+        document.getElementById('lon').textContent = longitude.toFixed(2) + '°';
+        document.getElementById('alt').textContent = alt_km.toFixed(2) + ' km';
+    }
+    catch(err) {
+        console.log(`Internal Server Error : ${err}`);
+        alert('Some Error occured, Please try again');
     }
 
-    document.getElementById('lat').textContent = latitude.toFixed(2) + '°';
-    document.getElementById('lon').textContent = longitude.toFixed(2) + '°';
-    document.getElementById('alt').textContent = alt_km.toFixed(2) + ' km';
 }
 
 getISS();
@@ -65,8 +74,12 @@ async function saveData() {
         body: JSON.stringify(data)
     };
 
-    const response = await fetch('/api', options);
-    const json = await response.json();
-
-    downloadFile(json);
+    try{
+        const response = await fetch('/api', options);
+        const json = await response.json();
+        downloadFile(json);
+    } catch(err){
+        console.log(`Internal Server Error: ${err}`);
+        alert('Some Error occured, Please try again');
+    }
 }

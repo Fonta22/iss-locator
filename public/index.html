@@ -116,11 +116,16 @@
     <div id="issMap"></div>
     <br />
     <div id="copyright">
-      Made by <b>Fonta22</b> and <a href="https://github.com/Fonta22/iss-locator/graphs/contributors">Contributors</a>, 2021
+      Made by <b>Fonta22</b> and <a href="https://github.com/Fonta22/iss-locator/graphs/contributors">Contributors</a>, <span id="year"><span>
     </div>
     <script src="redirect.js"></script>
     <script src="download.js"></script>
     <script src="locate.js"></script>
     <script src="switch.js"></script>
+    <script>
+      window.onload = function(){
+        document.querySelector("#year").textContent = new Date().getFullYear();
+      }
+    </script>
   </body>
 </html>

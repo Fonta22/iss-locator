@@ -3,12 +3,18 @@ body {
   color: #f5f5f5;
 }
 
+body,html
+{
+  height:100%;
+}
+
 #copyright {
-  float: left;
+  position:fixed;
+  bottom: 0px;
+  z-index: 1;
 	padding-bottom: 10px;
 	padding-top: 10px;
 	text-align: center;
-	bottom: 0px;
 	width: 100%;
   color: #808080;
   background-color: #f5f5f5;
@@ -17,6 +23,7 @@ body {
 #issMap {
   height: 480px;
   width: 90%;
+  z-index: -1;
   margin-left: auto;
   margin-right: auto;
 }

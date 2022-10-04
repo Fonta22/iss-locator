@@ -61,9 +61,11 @@ function centerMap() {
 
 async function saveData() {
     const data = {
-        lat: globLat,
-        lon: globLon,
-        alt: globAlt
+        coords: {
+            lat: globLat,
+            lon: globLon,
+            alt: globAlt
+        }
     };
 
     const options = {
@@ -74,11 +76,11 @@ async function saveData() {
         body: JSON.stringify(data)
     };
 
-    try{
+    try {
         const response = await fetch('/api', options);
         const json = await response.json();
         downloadFile(json);
-    } catch(err){
+    } catch(err) {
         console.log(`Internal Server Error: ${err}`);
         alert('Some Error occured, Please try again');
     }

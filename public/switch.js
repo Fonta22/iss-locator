@@ -22,4 +22,7 @@ switcher.addEventListener("click", function () {
 if (localStorage.getItem('darkMode')) {
     switcher.classList.add('js-toggle--checked');
     body.classList.add('dark-mode');
+    console.log('Dark Mode');
+} else {
+    console.log('Light Mode');
 }

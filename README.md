@@ -98,3 +98,9 @@ Used for the **styling**.
 [Where the ISS at](https://wheretheiss.at)'s API actually provides all the data used for the project!
 
 You can find all the information on how to use it here: https://wheretheiss.at/w/developer
+
+## Contributors
+
+<a href="https://github.com/Fonta22/iss-locator/graphs/contributors">
+   <img src="https://contrib.rocks/image?repo=Fonta22/iss-locator"/>
+</a>

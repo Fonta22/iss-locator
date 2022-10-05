@@ -76,16 +76,16 @@ async function saveData() {
         body: JSON.stringify(data)
     };
 
-    //try {
+    try {
         const response = await fetch('/api', options);
         const json = await response.json();
         console.log(json);
-        //downloadFile(json);
-    /*} catch(err) {
+        downloadFile(json);
+    } catch(err) {
         console.log("Error", err.stack);
         console.log("Error", err.name);
         console.log("Error", err.message);
         console.log(`Internal Server Error: ${err}`);
         alert('Some Error occured, Please try again');
-    }*/
+    }
 }

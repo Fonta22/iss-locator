@@ -1,5 +1,3 @@
-window.onload = function(){
-
+window.onload = () => {
 	document.querySelector("#year").textContent = new Date().getFullYear();
-
 }

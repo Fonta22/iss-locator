@@ -81,6 +81,9 @@ async function saveData() {
         const json = await response.json();
         downloadFile(json);
     } catch(err) {
+        console.log("Error", err.stack);
+        console.log("Error", err.name);
+        console.log("Error", err.message);
         console.log(`Internal Server Error: ${err}`);
         alert('Some Error occured, Please try again');
     }

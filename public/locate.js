@@ -37,7 +37,6 @@ async function getISS() {
    
 	globPLat = globLat;
 	globPLon = globLon;
-	globVel  = velocity;
 
         globLat = latitude;
         globLon = longitude;

@@ -21,25 +21,34 @@ const marker = L.marker([0, 0], { icon: issIcon }).addTo(mymap);
 const api_url = 'https://api.wheretheiss.at/v1/satellites/25544';
 let first = true;
 
-let globLat,globLon,globAlt;
+let globLat,globLon,globAlt, lastUpdate;
+let globPLat, globPLon;
 
 async function getISS() {
     try{
         const response = await fetch(api_url);
         const data = await response.json();
     
+	lastUpdate = Date.now();
+
         const { latitude, longitude, altitude } = data;
-        const alt_km = altitude * 1.609344;
-    
+
+	const alt_km = altitude * 1.609344;
+   
+	globPLat = globLat;
+	globPLon = globLon;
+
         globLat = latitude;
         globLon = longitude;
         globAlt = alt_km;
     
-        marker.setLatLng([latitude, longitude]);
+        /*
+	marker.setLatLng([latitude, longitude]);
         if (first) {
             centerMap();
             first = false;
         }
+	*/
     
         document.getElementById('lat').textContent = latitude.toFixed(2) + '°';
         document.getElementById('lon').textContent = longitude.toFixed(2) + '°';
@@ -49,12 +58,29 @@ async function getISS() {
         console.log(`Internal Server Error : ${err}`);
         alert('Some Error occured, Please try again');
     }
+}
 
+async function renderISS(){
+    try{
+	if(globPLon) {
+        	let time= Date.now()-lastUpdate;
+        	marker.setLatLng([globLat + (globLat-globPLat)*(time/1000), globLon + (globLon-globPLon)*(time/1000)]);
+
+        	if (first) {
+			centerMap();
+			first = false;
+		}
+	}
+    }
+    catch(err) {
+        console.log(`Internal Server Error : ${err}`);
+        alert('Some Error occured, Please try again');
+    }
 }
 
 getISS();
 window.setInterval(() => { getISS(); }, 1000);
-
+window.setInterval(() => { renderISS(); }, 50);
 function centerMap() {
     mymap.setView([globLat, globLon], 2);
 }

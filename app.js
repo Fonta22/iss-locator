@@ -7,6 +7,8 @@ const port = process.env.PORT;
 const host = process.env.HOST;
 const filedb = process.env.DB_NAME;
 
+const { version } = require('./package.json');
+
 const app = express();
 
 app.listen(port, () => console.log(`Server running at ${host}:${port}`));
@@ -25,4 +27,8 @@ app.post('/api', (request, response) => {
     console.log(`Data saved to database: "${filedb}"`);
 
     response.json(data);
+});
+
+app.get('/version', (request, response) => {
+    response.send(version);
 });

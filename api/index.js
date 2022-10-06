@@ -12,8 +12,4 @@ app.post('/api', (req, res) => {
     res.json(data);
 });
 
-app.get('/version', (request, response) => {
-    response.send(version);
-});
-
 module.exports = app;

@@ -15,20 +15,23 @@ app.listen(port, () => console.log(`Server running at ${host}:${port}`));
 app.use(express.static('public'));
 app.use(express.json({ limit: '1mb' }));
 
-const database = new Datastore(filedb);
-database.loadDatabase();
+app.use(require('./api/index'));
+app.use(require('./api/version'));
 
-app.post('/api', (request, response) => {
-    const data = request.body;
-    const timestamp = Date.now();
-    data.timestamp = timestamp;
+/*const database = new Datastore(filedb);*/
+/*database.loadDatabase();*/
+
+/*app.post('/api', (request, response) => {*/
+    /*const data = request.body;*/
+    /*const timestamp = Date.now();*/
+    /*data.timestamp = timestamp;*/
     
-    database.insert(data);
-    console.log(`Data saved to database: "${filedb}"`);
+    /*database.insert(data);*/
+    /*console.log(`Data saved to database: "${filedb}"`);*/
 
-    response.json(data);
-});
+    /*response.json(data);*/
+/*});*/
 
-app.get('/version', (request, response) => {
-    response.send(version);
-});
+/*app.get('/api/version', (request, response) => {*/
+    /*response.send(version);*/
+/*});*/

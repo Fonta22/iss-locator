@@ -9,8 +9,8 @@ app.post('/api', (req, res) => {
     const timestamp = Date.now();
     data.timestamp = timestamp;
    
-    //database.insert(data);
-    //console.log(`Data saved to database: "${filedb}"`);
+    database.insert(data);
+    console.log(`Data saved to database: "${filedb}"`);
 
     res.json(data);
 });

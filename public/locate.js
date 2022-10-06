@@ -25,31 +25,23 @@ let globLat,globLon,globAlt, lastUpdate;
 let globPLat, globPLon;
 
 async function getISS() {
-    try{
+    try {
         const response = await fetch(api_url);
         const data = await response.json();
     
-	lastUpdate = Date.now();
+	    lastUpdate = Date.now();
 
         const { latitude, longitude, altitude } = data;
 
-	const alt_km = altitude * 1.609344;
+	    const alt_km = altitude * 1.609344;
    
-	globPLat = globLat;
-	globPLon = globLon;
+        globPLat = globLat;
+        globPLon = globLon;
 
         globLat = latitude;
         globLon = longitude;
         globAlt = alt_km;
-    
-        /*
-	marker.setLatLng([latitude, longitude]);
-        if (first) {
-            centerMap();
-            first = false;
-        }
-	*/
-    
+
         document.getElementById('lat').textContent = latitude.toFixed(2) + '°';
         document.getElementById('lon').textContent = longitude.toFixed(2) + '°';
         document.getElementById('alt').textContent = alt_km.toFixed(2) + ' km';
@@ -61,16 +53,16 @@ async function getISS() {
 }
 
 async function renderISS(){
-    try{
-	if(globPLon) {
-        	let time= Date.now()-lastUpdate;
-        	marker.setLatLng([globLat + (globLat-globPLat)*(time/1000), globLon + (globLon-globPLon)*(time/1000)]);
+    try {
+        if(globPLon) {
+                let time= Date.now()-lastUpdate;
+                marker.setLatLng([globLat + (globLat-globPLat)*(time/1000), globLon + (globLon-globPLon)*(time/1000)]);
 
-        	if (first) {
-			centerMap();
-			first = false;
-		}
-	}
+                if (first) {
+                centerMap();
+                first = false;
+            }
+        }
     }
     catch(err) {
         console.log(`Internal Server Error : ${err}`);
@@ -107,7 +99,8 @@ async function saveData() {
         const json = await response.json();
         console.log(json);
         downloadFile(json);
-    } catch(err) {
+    }
+    catch(err) {
         console.log("Error", err.stack);
         console.log("Error", err.name);
         console.log("Error", err.message);

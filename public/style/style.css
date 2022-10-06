@@ -1,6 +1,8 @@
-body {
-  background: rgb(45, 45, 45);
-  color: #f5f5f5;
+body.dark-mode,
+body.dark-mode main *,
+body.dark-mode #copyright{
+  background: rgb(45, 45, 45) !important;
+  color: #f5f5f5 !important;
 }
 
 body, html {
@@ -16,7 +18,7 @@ body, html {
 	text-align: center;
 	width: 100%;
   color: #808080;
-  background-color: #f5f5f5;
+  background: #f5f5f5;
 }
 
 #issMap {
@@ -148,8 +150,3 @@ h2 {
   box-shadow: 0px 0px 5px 5px rgb(255, 167, 196);
 }
 
-body.dark-mode,
-body.dark-mode main * {
-  background: rgb(45, 45, 45);
-  color: #f5f5f5;
-}

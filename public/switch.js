@@ -1,28 +1,39 @@
 const body = document.body;
-const switcher = document.getElementsByClassName('js-toggle')[0];
+const switcher = document.querySelector('.js-toggle');
+
+const theme = () => {
+    let state = localStorage.getItem('theme');
+    if (state) {
+        return state;
+    }
+    else{
+        localStorage.setItem('theme', 'light');
+        return 'light';
+    }
+}
+
+const toggleTheme = () => {
+    if (theme() === 'dark') 
+    {
+        body.classList.remove('dark-mode');
+        switcher.classList.remove('js-toggle--checked');
+        localStorage.setItem('theme', 'light');
+    } 
+   else if (theme() === 'light') 
+    {
+        body.classList.add('dark-mode');
+        switcher.classList.add('js-toggle--checked');
+        localStorage.setItem('theme', 'dark');
+    }
+
+}
 
 // Click on dark mode icon. Add dark mode classes and wrappers. Store user preference through sessions
-switcher.addEventListener("click", function () {
-    // If dark mode is selected
-    if (this.classList.contains('js-toggle--checked')) {
-        body.classList.add('dark-mode');
-        // Save user preference in storage
-        localStorage.setItem('darkMode', 'true');
-    } else {
-        body.classList.remove('dark-mode');
-        setTimeout(function () {
-        localStorage.removeItem('darkMode');
-        }, 100);
-    }
-    this.classList.toggle('js-toggle--checked');
-    this.classList.add('js-toggle--focus');
-});
+switcher.addEventListener("click", toggleTheme);
 
-// Check Storage. Keep user preference on page reload
-if (localStorage.getItem('darkMode')) {
-    switcher.classList.add('js-toggle--checked');
+// Check if dark mode is selected. Add dark mode classes and wrappers
+if (theme() === 'dark')  {
     body.classList.add('dark-mode');
-    console.log('Dark Mode');
-} else {
-    console.log('Light Mode');
+    switcher.classList.add('js-toggle--checked');
+    
 }

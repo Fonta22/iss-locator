@@ -20,7 +20,7 @@ body, html {
 }
 
 #issMap {
-  height: 480px;
+  height: /*480px*/70%;
   width: 90%;
   z-index: 1;
   margin-left: auto;

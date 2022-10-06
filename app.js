@@ -17,21 +17,3 @@ app.use(express.json({ limit: '1mb' }));
 
 app.use(require('./api/index'));
 app.use(require('./api/version'));
-
-/*const database = new Datastore(filedb);*/
-/*database.loadDatabase();*/
-
-/*app.post('/api', (request, response) => {*/
-    /*const data = request.body;*/
-    /*const timestamp = Date.now();*/
-    /*data.timestamp = timestamp;*/
-    
-    /*database.insert(data);*/
-    /*console.log(`Data saved to database: "${filedb}"`);*/
-
-    /*response.json(data);*/
-/*});*/
-
-/*app.get('/api/version', (request, response) => {*/
-    /*response.send(version);*/
-/*});*/

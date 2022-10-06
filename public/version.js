@@ -3,5 +3,5 @@ window.onload = async () => {
 	const version = await response.text();
 	console.log(version);
 	document.querySelector("#year").textContent = new Date().getFullYear();
-	document.querySelector("#gh-btn").title = 'v' + version;
+	document.querySelector("#gh-btn").title = 'v' + '1.0.0' //version;
 }

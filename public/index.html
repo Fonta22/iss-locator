@@ -113,6 +113,22 @@
         </div>
       </div>
       <hr class="mb-3"> 
+      <table class="data-display table table-bordered">
+        <tbody>
+          <tr>
+            <td>Latitude</td>
+            <td><code id="lat"></code></td>
+          </tr>
+          <tr>
+            <td>Longitude</td>
+            <td><code id="lon"></code></td>
+          </tr>
+          <tr>
+            <td>Altitude</td>
+            <td><code id="alt"></code></td>
+          </tr>
+        </tbody>
+      </table>
     </div>
 
     
@@ -121,11 +137,12 @@
 
 
     
-    <div class="data-display">
+    <!--div class="data-display">
       <p>Latitude : <code id="lat"></code></p>
       <p>Longitude : <code id="lon"></code></p>
       <p>Altitude : <code id="alt"></code></p>
-    </div>
+    </div-->
+
     <div class="controls">
       <button class="btn btn-primary ms-3" onclick="centerMap()">Center</button>
       <button class="btn btn-primary" onclick="saveData()">Save</button>

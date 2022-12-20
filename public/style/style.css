@@ -1,24 +1,34 @@
 body.dark-mode,
-body.dark-mode main *,
-body.dark-mode #copyright{
+body.dark-mode main * {
   background: rgb(45, 45, 45) !important;
-  color: #f5f5f5 !important;
+  color: #f0f0f0 !important;
+}
+body.dark-mode #copyright {
+  background: rgb(60, 60, 60) !important;
+  color: #f0f0f0 !important;
 }
 
 body, html {
-  height:100%;
+  height: 100%;
+  position: relative;
+  /*padding-bottom: 3em;*/
+  min-height: 100vh;
 }
 
 #copyright {
-  position:fixed;
-  bottom: 0px;
-  z-index: 3;
+  /* https://youtu.be/PSD5pFi6bx4 */
+  text-align: center;
+  padding: 1rem 0;
+  width: 100%;
+  background: #f0f0f0;
+  margin-top: auto;
+  /*z-index: 3;
 	padding-bottom: 10px;
 	padding-top: 10px;
 	text-align: center;
 	width: 100%;
   color: #808080;
-  background: #f5f5f5;
+  background: #f5f5f5;*/
 }
 
 #issMap {
@@ -47,6 +57,8 @@ h2 {
 .data-display {
   text-align: center;
 } 
+
+/* js-toggle */
 
 .js-toggle-wrapper {
   display: table;
